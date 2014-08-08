@@ -30,7 +30,11 @@ public class ZlatanController : MonoBehaviour
     void OnCollisionEnter2D (Collision2D other)
     {
         if (other.gameObject.tag == "Ball")
-            other.gameObject.rigidbody2D.AddForce(new Vector2(250, 250));
+            other.gameObject.rigidbody2D.AddForce(new Vector2(400, 400));
+
+        if (other.gameObject.tag == "Wall")
+            transform.position = new Vector3(transform.position.x * Time.deltaTime, transform.position.y, transform.position.z);
+
     }
 }
 
