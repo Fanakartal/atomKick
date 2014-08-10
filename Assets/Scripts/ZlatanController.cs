@@ -17,7 +17,14 @@ public class ZlatanController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //transform.Rotate(Vector3.back, Time.deltaTime * speed);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
+        if (Input.GetKeyDown(KeyCode.R))
+            Application.LoadLevel(0);
 
         if (Input.GetAxis("Horizontal") != 0)
             transform.position = new Vector3((transform.position.x + Input.GetAxis("Horizontal") * speed * Time.deltaTime), transform.position.y, transform.position.z);

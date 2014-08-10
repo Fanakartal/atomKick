@@ -5,11 +5,13 @@ public class BallController : MonoBehaviour
 {
     public float minSpeed;
     public float maxSpeed;
-    public Vector2 curSpeed;
+    //public Vector2 curSpeed;
+    public AudioClip brickSound;
 	// Use this for initialization
 	void Start () 
     {
         //rigidbody2D.velocity = new Vector2(0, minSpeed);
+        
         rigidbody2D.AddRelativeForce(new Vector2(2, -minSpeed));
 	}
 	
@@ -33,16 +35,29 @@ public class BallController : MonoBehaviour
 
     void LateUpdate()
     {
-        rigidbody2D.velocity = minSpeed * (rigidbody2D.velocity.normalized);
+        rigidbody2D.velocity = minSpeed * rigidbody2D.velocity.normalized;
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Brick")
-            //rigidbody2D.velocity = minSpeed * (rigidbody2D.velocity.normalized);
-            rigidbody2D.AddRelativeForce(new Vector2(minSpeed, minSpeed));
+        /*if (other.gameObject.tag == "Player")
+        {
+            //rigidbody2D.AddRelativeForce(new Vector2(minSpeed, Random.Range(1, 3)));
+            
+            //rigidbody2D.velocity = new Vector2(Random.Range(1.0f, 2.0f) * rigidbody2D.velocity.x, minSpeed * (rigidbody2D.velocity.normalized.y));
+            Debug.Log("Player collided." + rigidbody2D.velocity.x + " - " + rigidbody2D.velocity.y);
+        }*/
+
+        //if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Brick")
+
+            //rigidbody2D.velocity = new Vector2(minSpeed * (rigidbody2D.velocity.normalized.x), rigidbody2D.velocity.normalized.y);
+
+            //rigidbody2D.AddRelativeForce(new Vector2(minSpeed, minSpeed));
 
         if (other.gameObject.tag == "Brick")
+        {
+            audio.PlayOneShot(brickSound);
             Destroy(other.gameObject);
+        }
     }
 }
