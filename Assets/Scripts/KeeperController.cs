@@ -21,7 +21,7 @@ public class KeeperController : MonoBehaviour {
 
         if (transform.position.x >= xBoundry)
         {
-            Debug.Log("X'ten büyük");
+            //Debug.Log("X'ten büyük");
             //transform.position = new Vector3(xBoundry, transform.position.y, transform.position.z);
             //transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
             //rigidbody2D.AddForce(new Vector2(-speed, 0));
@@ -31,7 +31,7 @@ public class KeeperController : MonoBehaviour {
 
         if (transform.position.x <= -xBoundry)
         {
-            Debug.Log("X'ten küçük");
+            //Debug.Log("X'ten küçük");
             //transform.position = new Vector3(-xBoundry, transform.position.y, transform.position.z);
             //transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
             //rigidbody2D.AddForce(new Vector2(speed, 0));
